@@ -1,0 +1,19 @@
+﻿@using MusicStore.Models
+@using MusicStore.BL
+@{ 
+    var clang = Request.QueryString["lang"];
+    if (string.IsNullOrEmpty(clang))
+    {
+        clang = Language.GetDefaultLanguage;
+    }
+    <ul class="lang">
+        @foreach(var item in Language.GetLanguageList())
+        {
+            <li>
+                <a href="@Functions.GetUrlSwitcher(clang,item.LanguageKey)">
+                    @item.LanguageValue
+                </a>
+            </li>
+        }
+    </ul>
+}
