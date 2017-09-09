@@ -56,5 +56,16 @@ namespace MusicStore.BL
             }
             return dic;
         }
+        public static void LogOut(string url)
+        {
+            HttpContext.Current.Session.Abandon();
+            HttpContext.Current.Session.RemoveAll();
+            //HttpContext.Current.Session.Clear();
+            FormsAuthentication.SignOut();
+            if (!string.IsNullOrEmpty(url))
+            {
+                HttpContext.Current.Response.Redirect(url);
+            }
+        }
     }
 }
