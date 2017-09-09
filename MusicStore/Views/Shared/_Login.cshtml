@@ -1,5 +1,5 @@
-﻿
-@if (Session["username"] != null)
+﻿@*@if (Session["username"] == null)*@
+@if (!Request.IsAuthenticated) //check with form authentication
 {
     <a href="/users/login">Login</a>
     <a href="/users/register"> Register </a>
@@ -7,5 +7,6 @@
 }
 else
 {
-    <a href="/users/logout"> Logout </a> 
+    //var kx = Session["username"];
+    <a href="/users/logout"> Logout </a> <p>Helo</p>
 }

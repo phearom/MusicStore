@@ -48,6 +48,10 @@ namespace MusicStore.Controllers
 
             return RedirectToAction("index", "Home");
         }
+        public void Logout()
+        {
+            Authentication.LogOut("~/Home");
+        }
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
