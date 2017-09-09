@@ -1,11 +1,11 @@
 ﻿
 @if (Session["username"] != null)
 {
-    <a href="#">Login</a>
-    <a href="#"> Register </a>
-    <a href="#">Forget Password?</a>
+    <a href="/users/login">Login</a>
+    <a href="/users/register"> Register </a>
+    <a href="/users/forgetpwd">Forget Password?</a>
 }
 else
 {
-    <a href="#"> Logout </a>
+    <a href="/users/logout"> Logout </a>
 }
