@@ -29,6 +29,8 @@
                     <li>@Html.ActionLink(Localize.GetLocalize(clang, "@album"), "Index", "Albums", new { lang = clang }, null)</li>
                     <li>@Html.ActionLink(Localize.GetLocalize(clang, "@author"), "Index", "Authors", new { lang = clang }, null)</li>
                     <li>@Html.ActionLink(Localize.GetLocalize(clang, "@albumauthor"), "Index", "AlbumAuthors", new { lang = clang }, null)</li>
+                    <li><a href="~/APICall/Album.html">Albul API</a></li>
+                    <li><a href="~/APICall/Author.html">Author API</a></li>
                 </ul>
                 <div>
                     @Html.Partial("_LanguageSwitcher")                  
