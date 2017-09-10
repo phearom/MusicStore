@@ -16,9 +16,14 @@
         <input type="button" value="Delete" onclick="Delete();" />
         <input type="button" value="Update" onclick="Update();" />
         <p id="product"></p>
+
+        <div id="imgProg">
+            <img src="../Images/loading.gif" style="width:120px; height:auto;" />
+        </div>
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
     <script>
         var uri = '/api/album';
 
@@ -31,6 +36,7 @@
         }
         function loadData() {
             $('#albums').text("");
+            //var intervalID = setInterval(updateProgress, 250);
             $.getJSON(uri)
                 .done(function (data) {
                     // On success, 'data' contains a list of albums.
@@ -38,10 +44,12 @@
                         // Add a list item for the product.
                         $('<li>', { text: formatItem(item) }).appendTo($('#albums'));
                     });
+                    $("#imgProg").hide();
                 })
                 .fail(function (jqXHR, textStatus, err) {
                     $('#product').text('Error: ' + err);
-                });;
+                });
+
         }
         function Find() {
             var id = $('#albumId').val();
@@ -84,13 +92,18 @@
                     error: function (request, textStatus, error) {
                         alert(error);
                     }
+                    //success: function (data) {
+                    //    alert("Success : " + data);
+                    //},
+                    //error: function (msg) {
+                    //    alert("Error : " + msg);
+                    //}
                 });
             }
             //$.ajax({
             //    url: uri,
             //    type: 'DELETE',
             //    dataType: 'json',
-            //    data: { id: id },
             //    success: function (data, textStatus, xhr) {
             //        alert(data.Status);
             //    },

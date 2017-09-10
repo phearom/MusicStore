@@ -35,8 +35,8 @@ namespace MusicStore.API
             try
             {
                 album.DeleteById(id);
-                var i = album.SaveChange();
-                if (i > 0)
+                var exc = album.SaveChange();
+                if (exc > 0)
                     return "Delete successfully.";
                 else
                     return "Delete failed.";
