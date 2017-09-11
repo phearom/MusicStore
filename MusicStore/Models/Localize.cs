@@ -27,7 +27,8 @@ namespace MusicStore.Models
             try
             {
                 var data = context.DbSet.Where(c => c.LocalizeKey.Equals(key) && c.LanguageKey.Contains(clang)).FirstOrDefault();
-                if (!string.IsNullOrEmpty(data.LocalizeValue))
+                if (data != null
+                    && !string.IsNullOrEmpty(data.LocalizeValue))
                 {
                     return data.LocalizeValue;
                 }
