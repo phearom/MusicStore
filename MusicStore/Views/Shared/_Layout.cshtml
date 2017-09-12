@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("MVC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("MVC", "Index", "Home", new { lang = clang }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -33,7 +33,7 @@
                     <li><a href="~/APICall/Author.html">Author API</a></li>
                 </ul>
                 <div>
-                    @Html.Partial("_LanguageSwitcher")                  
+                    @Html.Partial("_LanguageSwitcher")
                 </div>
             </div>
         </div>

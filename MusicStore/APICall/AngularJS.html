@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+
+    <div ng-app="myApp" ng-controller="customersCtrl">
+        <input type="text" ng-model="search" />
+        <ul>
+            <li ng-repeat="x in content | filter : search">
+                {{ x.AlbumID + ' - ' + x.Name +' - '+x.ReleaseDate}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function ($scope, $http) {
+            $http.get("/api/album")
+            .then(function (response) {
+                //First function handles success
+                $scope.content = response.data;
+            }, function (response) {
+                //Second function handles error
+                $scope.content = "Something went wrong";
+            });
+        });
+    </script>
+
+</body>
+</html>
