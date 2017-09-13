@@ -186,6 +186,7 @@
     <Compile Include="Controllers\AlbumsController.cs" />
     <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -274,6 +275,10 @@
     <Compile Include="Migrations\201709081331195_updateuserlenght.Designer.cs">
       <DependentUpon>201709081331195_updateuserlenght.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709131530005_addstudent.cs" />
+    <Compile Include="Migrations\201709131530005_addstudent.Designer.cs">
+      <DependentUpon>201709131530005_addstudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Album.cs" />
@@ -285,6 +290,7 @@
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\spGetAlbum.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -305,6 +311,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\loading.gif" />
+    <Content Include="NG\StudentModel.js" />
+    <Content Include="NG\StudentController.js" />
+    <Content Include="NG\StudentService.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\angular.min.js" />
@@ -366,6 +375,8 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\AlbumNG\Index.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -441,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709081331195_updateuserlenght.resx">
       <DependentUpon>201709081331195_updateuserlenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709131530005_addstudent.resx">
+      <DependentUpon>201709131530005_addstudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

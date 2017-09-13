@@ -19,5 +19,6 @@ namespace MusicStore.Models
         public DbSet<Language> Language { get; set; }
         public DbSet<Localize> Localize { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Student> Student { get; set; }
     }
 }
