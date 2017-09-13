@@ -31,23 +31,29 @@ scotchApp.controller('mainController', function ($scope) {
 });
 
 scotchApp.controller('albumController', function ($scope, $http) {
+    $scope.loading = true; //show loading image
     $http.get("/api/album")
     .then(function (response) {
         //First function handles success
         $scope.Albums = response.data;
+        $scope.loading = false; //hide loading image
     }, function (response) {
         //Second function handles error
         $scope.Albums = "Something went wrong";
+        $scope.loading = false; //hide loading image
     });
 });
 
-scotchApp.controller('authorController', function ($scope,$http) {
+scotchApp.controller('authorController', function ($scope, $http) {
+    $scope.loading = true; //show loading image
     $http.get("/api/author")
     .then(function (response) {
         //First function handles success
         $scope.Authors = response.data;
+        $scope.loading = false; //hide loading image
     }, function (response) {
         //Second function handles error
         $scope.Authors = "Something went wrong";
+        $scope.loading = false; //hide loading image
     });
 });

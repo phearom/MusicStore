@@ -289,11 +289,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AngolarJS\index.html" />
-    <Content Include="AngolarJS\pages\album.html" />
-    <Content Include="AngolarJS\pages\author.html" />
-    <Content Include="AngolarJS\pages\home.html" />
-    <Content Include="AngolarJS\script.js" />
+    <Content Include="AngularJS\index.html" />
+    <Content Include="AngularJS\pages\album.html" />
+    <Content Include="AngularJS\pages\author.html" />
+    <Content Include="AngularJS\pages\home.html" />
+    <Content Include="AngularJS\script.js" />
     <Content Include="APICall\AngularJS.html" />
     <Content Include="APICall\Author.html" />
     <Content Include="Content\bootstrap.css" />

@@ -4,7 +4,11 @@
     <ul>
         <li ng-repeat="x in Albums">
             {{x.AlbumID + ' - ' + x.Name + ' - ' + x.ReleaseDate}}
+            <a href="#/album?id={{x.AlbumID}}">Edit</a>
         </li>
     </ul>
-
+    <div ng-show="loading" class="loading">
+        <img src="../../Images/loading.gif" style="width:120px" />
+    </div>
 </div>
+
