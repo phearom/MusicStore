@@ -1,31 +1,47 @@
-﻿
+﻿@using MusicStore.Models
 @{
+    var clang = Language.GetCurrentLanguage;
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<style>
+    .pointer {
+        cursor: pointer;
+    }
+</style>
 <h2>Student Details :</h2>
 <div ng-controller="stuCntr">
-   
-    <input type="submit" value="Add Student" ng-click="AddNewStudent()" />
+
+    <input type="submit" value="Add Student" class="btn btn-primary" ng-click="AddNewStudent()" /><br/><br/>
     <div id="dvStudnetDetails">
         <table cellpadding="12" class="table table-bordered table-hover">
             <tr>
                 <td>
-                    <b>Id</b>
+                    <b>
+                        @Localize.GetLocalize(clang,"@StudentID")
+                    </b>
                 </td>
                 <td>
-                    <b>Student Name</b>
+                    <b>
+                        @Localize.GetLocalize(clang, "@StudentName")
+                    </b>
                 </td>
                 <td>
-                    <b>Address</b>
+                    <b>
+                        @Localize.GetLocalize(clang, "@StudentAddress")
+                    </b>
                 </td>
                 <td>
-                    <b>Email</b>
+                    <b>
+                        @Localize.GetLocalize(clang, "@StudentEmail")
+                    </b>
                 </td>
                 <td>
-                    <b>Manage</b>
+                    <b>
+                        @Localize.GetLocalize(clang, "@Action")
+                    </b>
                 </td>
             </tr>
             <tr ng-repeat="stu in students">
@@ -69,13 +85,16 @@
 
                 </td>
                 <td>
-                    <span ng-hide="a" ng-click="a=!a">Edit</span>
-                    <span ng-show="a" ng-click="a=!a">Cancel</span>
-                    <span ng-show="a" ng-click="UpdateStudent(stu)">Update</span>
-                    <span ng-click="deleteStudent(stu,$index)">Delete</span>
+                    <span ng-hide="a" ng-click="a=!a" class="pointer">Edit</span>
+                    <span ng-show="a" ng-click="UpdateStudent(stu);a=!a" class="pointer">Update</span>
+                    <span ng-show="a" ng-click="a=!a" class="pointer">Cancel</span>
+                    <span ng-click="deleteStudent(stu,stu.ID)" class="pointer">Delete</span>
                 </td>
             </tr>
         </table>
+        <div ng-show="loading" class="loading">
+            <img src="../../Images/loading.gif" style="width:120px" />
+        </div>
     </div>
     <div id="dvAddStudnet" ng-show="dvStudent">
         <p class="dvTask">{{Action}} New Student</p>
@@ -83,13 +102,13 @@
             <tr>
                 <td>Name : </td>
                 <td>
-                    <input type="text" id="txtName" ng-model="student.StudentName" />
+                    <input type="text" id="txtName" ng-model="student.StudentName" required />
                 </td>
             </tr>
             <tr>
                 <td>Email : </td>
                 <td>
-                    <input type="text" id="txtEmail" ng-model="student.StudentEmail" />
+                    <input type="text" id="txtEmail" ng-model="student.StudentEmail" required />
                 </td>
             </tr>
             <tr>
@@ -99,6 +118,6 @@
                 </td>
             </tr>
         </table>
-        <input type="submit" value="Submit" ng-click="AddStudnet(student)" />
+        <input type="submit" value="Submit" class="btn btn-primary" ng-click="AddStudnet(student)" />
     </div>
 </div>  
