@@ -1,5 +1,5 @@
 // create the module and name it scotchApp
-var scotchApp = angular.module('scotchApp', ['ngRoute']);
+var scotchApp = angular.module('scotchApp', ['ngRoute', 'angularUtils.directives.dirPagination']);
 
 // configure our routes
 scotchApp.config(function ($routeProvider) {
@@ -37,6 +37,10 @@ scotchApp.controller('mainController', function ($scope) {
 });
 
 scotchApp.controller('albumController', function ($scope, $http) {
+
+    $scope.currentPage = 1;
+    $scope.pageSize = 5;
+
     $scope.loading = true; //show loading image
     $scope.Albums = GetAllAlbum();
     function GetAllAlbum() {
@@ -66,6 +70,9 @@ scotchApp.controller('albumController', function ($scope, $http) {
             });
         }
     }
+    $scope.pageChangeHandler = function (num) {
+        console.log('Page changed to ' + num);
+    };
 });
 
 // create the controller and inject Angular's $scope

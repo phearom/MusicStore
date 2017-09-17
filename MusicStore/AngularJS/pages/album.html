@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="x in Albums">
+            <tr dir-paginate="x in Albums | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
                 <td>{{x.AlbumID}}</td>
                 <td>{{x.Name}}</td>
                 <td>{{x.ReleaseDate}}</td>
@@ -24,6 +24,11 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="text-center">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/dirPagination.tpl.html" pagination-id="drinksPagination"></dir-pagination-controls>
+    </div>
+
     <div ng-show="loading" class="loading">
         <img src="../../Images/loading.gif" style="width:120px" />
     </div>
