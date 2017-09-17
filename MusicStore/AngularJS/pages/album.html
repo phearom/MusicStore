@@ -1,14 +1,44 @@
 <div class="jumbotron text-center">
     <h1>Album Page</h1>
 
-    <ul>
-        <li ng-repeat="x in Albums">
-            {{x.AlbumID + ' - ' + x.Name + ' - ' + x.ReleaseDate}}
-            <a href="#/album?id={{x.AlbumID}}">Edit</a>
-        </li>
-    </ul>
+    <table id="example" class="display table" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Release Date</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="x in Albums">
+                <td>{{x.AlbumID}}</td>
+                <td>{{x.Name}}</td>
+                <td>{{x.ReleaseDate}}</td>
+                <td>{{x.Rating}}</td>
+                <td>
+                    <a href="#!/album-edit?id={{x.AlbumID}}">Edit</a>
+                    <a href="#!/album" ng-click="DeleteAlbum(x.AlbumID)">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <div ng-show="loading" class="loading">
         <img src="../../Images/loading.gif" style="width:120px" />
     </div>
+    <h3>
+        <a href="#!/album-edit?id=-1">Add New</a>
+    </h3>
 </div>
+<script>
+    $(document).ready(function () {
+        //$('#example').DataTable();
+    });
+</script>
 
+<style>
+    th {
+        text-align: center;
+    }
+</style>

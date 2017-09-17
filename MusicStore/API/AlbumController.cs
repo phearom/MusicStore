@@ -29,6 +29,24 @@ namespace MusicStore.API
             return data;
         }
 
+        [HttpPost]
+        public string AddAlbum(Album album)
+        {
+            try
+            {
+                this.album.Add(album);
+                var i = this.album.SaveChange();
+                if (i > 0)
+                    return "Add successfully.";
+                else
+                    return "Add failed.";
+            }
+            catch (Exception ex)
+            {
+                return "Add : " + ex.Message;
+            }
+        }
+
         [HttpDelete]
         public string DeleteById(int id)
         {
@@ -70,6 +88,9 @@ namespace MusicStore.API
         {
             try
             {
+                var x = new Random();
+                album.IsEnable = 1;
+                album.Rating = x.Next(1, 5);
                 this.album.Update(album);
                 var i = this.album.SaveChange();
                 if (i > 0)

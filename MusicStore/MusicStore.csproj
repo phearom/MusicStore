@@ -296,14 +296,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AngularJS\index.html" />
+    <Content Include="AngularJS\js\angular-route.js" />
+    <Content Include="AngularJS\css\bootstrap.min.css" />
+    <Content Include="AngularJS\js\angular.1.2.25.min.js" />
     <Content Include="AngularJS\pages\album.html" />
+    <Content Include="AngularJS\pages\album-edit.html" />
     <Content Include="AngularJS\pages\author.html" />
     <Content Include="AngularJS\pages\home.html" />
-    <Content Include="AngularJS\script.js" />
+    <Content Include="AngularJS\js\script.js" />
     <Content Include="APICall\AngularJS.html" />
     <Content Include="APICall\Author.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery.dataTables.min.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -316,7 +322,8 @@
     <Content Include="NG\StudentService.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
-    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular-route.1.6.4.js" />
+    <Content Include="Scripts\angular.1.6.4.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -327,6 +334,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

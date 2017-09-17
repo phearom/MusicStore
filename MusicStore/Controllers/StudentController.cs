@@ -15,15 +15,15 @@ namespace MusicStore.Controllers
             return View();
         }
 
-        public JsonResult AddStudent(Student stu)
+        public JsonResult AddStudent(Student student)
         {
-            if (stu != null)
+            if (student != null)
             {
                 using (MusicStoreDataContext dbContext = new MusicStoreDataContext())
                 {
-                    dbContext.Student.Add(stu);
+                    dbContext.Student.Add(student);
                     dbContext.SaveChanges();
-                    return Json(stu, JsonRequestBehavior.AllowGet);
+                    return Json(student, JsonRequestBehavior.AllowGet);
                 }
             }
             else

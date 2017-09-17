@@ -2,32 +2,41 @@
 <!-- define angular app -->
 <html ng-app="scotchApp">
 <head>
+    <title>AngularJS CRUD</title>
+    <script src="../Scripts/jquery-1.10.2.js"></script>
+    <script src="../Scripts/jquery-ui.js"></script>
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
     <!-- SCROLLS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/jquery.dataTables.min.css" />
+
     <!-- SPELLS -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-    <script src="script.js"></script>
+
+    <!--<script src="js/angular.1.2.25.min.js"></script>-->
+    <script src="../Scripts/angular.1.6.4.min.js"></script>
+    <!--<script src="js/angular-route.js"></script>-->
+    <script src="../Scripts/angular-route.1.6.4.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <!-- define angular controller -->
 <body ng-controller="mainController">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/AngolarJS/index.html">Angular Routing Example</a>
+                <a class="navbar-brand" href="/AngularJS/index.html">Angular Routing Example</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#album"><i class="fa fa-shield"></i> Album</a></li>
-                <li><a href="#author"><i class="fa fa-comment"></i>Autor</a></li>
+                <li><a href="#!"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#!album"><i class="fa fa-shield"></i>Album</a></li>
+                <li><a href="#!author"><i class="fa fa-comment"></i>Autor</a></li>
             </ul>
         </div>
     </nav>
     <div id="main">
         <!-- angular templating -->
         <div ng-view></div>
-        
+
     </div>
 
     <footer class="text-center">

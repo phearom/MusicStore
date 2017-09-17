@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+    <h1>Album Edit Page</h1>
+    <table class="table" style="width:50%;">
+        <tr ng-show="a">
+            <td>ID :</td>
+            <td><span ng-model="Album.AlbumID">{{Album.AlbumID}}</span></td>
+        </tr>
+        <tr>
+            <td> Name :</td>
+            <td><input type="text" ng-model="Album.Name" /></td>
+        </tr>
+        <tr>
+            <td> Release Date :</td>
+            <td><input type="text" id="ReleaseDate" ng-model="Album.ReleaseDate" /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input ng-show="a" type="button" value="Update" ng-click="UpdateAlbum(Album);" />
+                <input ng-show="!a" type="button" value="Add" ng-click="AddAlbum(Album);" />
+                <a href="index.html#!/album">Cancel</a>
+            </td>
+        </tr>
+    </table>
+    <div ng-show="loading" class="loading">
+        <img src="../../Images/loading.gif" style="width:120px" />
+    </div>
+
+    <script>
+        $(function () {
+            $("#ReleaseDate").datepicker();
+        });
+    </script>
+</div>

@@ -2,15 +2,15 @@
     $scope.dvStudent = false;
     //GetStudentList();
     $scope.students = GetStudentList();
-    //To Get All Records  
+
     function GetStudentList() {
-        StudentService.getAllStudents()
-        .success(function (stu) {
-            $scope.students = stu;
-        }).error(function () {
+        StudentService.getAllStudents().then(function (response) {
+            $scope.students = response.data;
+        }, function (response) {
             alert('Error in getting records');
         });
     }
+
     // To display Add div  
     $scope.AddNewStudent = function () {
         $scope.Action = "Add";
@@ -18,10 +18,11 @@
         $scope.student = '';
     }
     // Adding New student record  
-    $scope.AddStudnet = function (student) {
-        StudentService.AddNewStudent(student).success(function (msg) {
+    $scope.AddStudent = function (student) {
+        StudentService.AddNewStudent(student).then(function (response) {
             alert('save successfully.');
-            $scope.students.push(msg)
+            //$scope.students.push(response.data)
+            GetStudentList();
             $scope.dvStudent = false;
         }, function () {
             alert('Error in adding record');
@@ -31,20 +32,20 @@
     $scope.deleteStudent = function (stu, index) {
         var con = confirm('sure to delete? Student ID=' + index);
         if (!con) { return false; }
-        var retval = StudentService.deleteStudent(stu.ID).success(function (msg) {
+        var retval = StudentService.deleteStudent(stu.ID).then(function (response) {
             $scope.students.splice(index, 1);
             //alert('Student has been deleted successfully.');
             GetStudentList();
-        }).error(function () {
+        }, function () {
             alert('Oops! something went wrong.');
         });
     }
     // Updateing Records  
     $scope.UpdateStudent = function (tbl_Student) {
         var RetValData = StudentService.UpdateStudent(tbl_Student);
-        RetValData.success(function () {
-            //alert('Update success')
-        }).error(function () {
+        RetValData.then(function () {
+            alert('Update success');
+        }, function () {
             alert('Error in getting records');
         });
         //getData.then(function (tbl_Student) {
