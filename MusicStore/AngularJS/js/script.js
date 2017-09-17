@@ -70,6 +70,47 @@ scotchApp.controller('albumController', function ($scope, $http) {
             });
         }
     }
+
+    $scope.Authors = GetAllAuthors();
+    function GetAllAuthors() {
+        $http.get("/api/author")
+        .then(function (response) {
+            //First function handles success
+            $scope.Authors = response.data;
+        }, function (response) {
+            //Second function handles error
+            $scope.Authors = "Something went wrong. " + response.data;
+        });
+    }
+
+    $scope.AlbumFilter = function (ax) {
+
+        var data = { Id: 3, Name: 'Phearom Neang', Age: 24 }
+        $http({
+            method: "post",
+            url: "/albums/xxx",
+            data: JSON.stringify(data),
+            dataType: "json"
+        }).then(function (response) {
+            alert(response.data);
+        }, function (response) {
+            alert(respone.data);
+        });
+
+        //get method
+        //$http({
+        //    method: "get",
+        //    url: "/albums/xxx/?id=3&name=phearom&age=24",
+        //    //data: JSON.stringify(dx),
+        //    dataType: "json"
+        //}).then(function (response) {
+        //    alert(response.data);
+        //}, function (response) {
+        //    alert(respone.data);
+        //});
+
+    }
+
     $scope.pageChangeHandler = function (num) {
         $scope.currentPage = num;
         GetAllAlbum();
@@ -126,6 +167,18 @@ scotchApp.controller('albumEditController', function ($scope, $http, $routeParam
             window.location = 'index.html#!/album'
         }, function (response) {
             alert(respone.data);
+        });
+    }
+
+    $scope.Authors = GetAllAuthors();
+    function GetAllAuthors() {
+        $http.get("/api/author")
+        .then(function (response) {
+            //First function handles success
+            $scope.Authors = response.data;
+        }, function (response) {
+            //Second function handles error
+            $scope.Authors = "Something went wrong. " + response.data;
         });
     }
 });

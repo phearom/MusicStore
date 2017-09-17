@@ -15,6 +15,13 @@ namespace MusicStore.Controllers
     {
         private MusicStoreDataContext db = new MusicStoreDataContext();
 
+        [HttpPost]
+        public string XXX(string id, string name, string age)
+        {
+            var x = $"ID : {id}, name : {name}, age : {age}";
+            return x;
+        }
+
         // GET: Albums
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
@@ -63,7 +70,7 @@ namespace MusicStore.Controllers
                 case "IsEnable_desc":
                     data = data.OrderByDescending(e => e.IsEnable).ToList();
                     break;
-                default: 
+                default:
                     data = data.OrderBy(s => s.Rating).ToList();
                     break;
             }

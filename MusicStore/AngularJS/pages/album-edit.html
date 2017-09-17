@@ -1,4 +1,4 @@
-<div class="jumbotron text-center">
+<div class="jumbotron">
     <h1>Album Edit Page</h1>
     <table class="table" style="width:50%;">
         <tr ng-show="a">
@@ -10,8 +10,26 @@
             <td><input type="text" ng-model="Album.Name" /></td>
         </tr>
         <tr>
+            <td> Rating :</td>
+            <td><input type="text" ng-model="Album.Rating" /></td>
+        </tr>
+        <tr>
+            <td> Enable :</td>
+            <td>
+                <input type="checkbox" ng-checked="Album.IsEnable" />
+            </td>
+        </tr>
+        <tr>
             <td> Release Date :</td>
             <td><input type="text" id="ReleaseDate" ng-model="Album.ReleaseDate" /></td>
+        </tr>
+        <tr>
+            <td>Author :</td>
+            <td>
+                <select ng-model="ax">
+                    <option ng-repeat="author in Authors" value="{{author.AuthorID}}" ng-selected="author.AuthorID==Album.AlbumID">{{author.Name}}</option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td colspan="2">

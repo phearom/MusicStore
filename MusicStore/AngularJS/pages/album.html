@@ -1,15 +1,19 @@
-<div class="jumbotron text-center">
+<div class="jumbotron">
     <h1>Album Page</h1>
 
     <input type="text" ng-model="q" placeholder="Search" />
+    Rating : <select ng-model="ax" ng-change="AlbumFilter(ax)">
+        <option ng-repeat="author in Authors" value="{{author.AuthorID}}" ng-selected="author.AuthorID==Album.AlbumID">{{author.Name}}</option>
+    </select>
 
-    <table id="example" class="display table" cellspacing="0" width="100%">
+    <table id="example" class="display table" cellspacing="0" ng-show="!loading">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Release Date</th>
                 <th>Rating</th>
+                <th>Enable</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -19,6 +23,7 @@
                 <td>{{x.Name}}</td>
                 <td>{{x.ReleaseDate}}</td>
                 <td>{{x.Rating}}</td>
+                <td>{{x.IsEnable}}</td>
                 <td>
                     <a href="#!/album-edit?id={{x.AlbumID}}">Edit</a>
                     <a href="#!/album" ng-click="DeleteAlbum(x.AlbumID)">Delete</a>
@@ -27,7 +32,7 @@
         </tbody>
     </table>
 
-    <div class="text-center">
+    <div class="text-center" ng-show="!loading">
         <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/dirPagination.tpl.html" pagination-id="drinksPagination"></dir-pagination-controls>
     </div>
 
@@ -38,11 +43,6 @@
         <a href="#!/album-edit?id=-1">Add New</a>
     </h3>
 </div>
-<script>
-    $(document).ready(function () {
-        //$('#example').DataTable();
-    });
-</script>
 
 <style>
     th {

@@ -34,6 +34,8 @@ namespace MusicStore.API
         {
             try
             {
+                var rand = new Random();
+                album.Rating = rand.Next(1, 5);
                 this.album.Add(album);
                 var i = this.album.SaveChange();
                 if (i > 0)
@@ -89,7 +91,7 @@ namespace MusicStore.API
             try
             {
                 var x = new Random();
-                album.IsEnable = 1;
+                //album.IsEnable = 1;
                 album.Rating = x.Next(1, 5);
                 this.album.Update(album);
                 var i = this.album.SaveChange();
