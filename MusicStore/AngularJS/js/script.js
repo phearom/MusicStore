@@ -71,6 +71,8 @@ scotchApp.controller('albumController', function ($scope, $http) {
         }
     }
     $scope.pageChangeHandler = function (num) {
+        $scope.currentPage = num;
+        GetAllAlbum();
         console.log('Page changed to ' + num);
     };
 });

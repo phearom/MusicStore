@@ -1,6 +1,8 @@
 <div class="jumbotron text-center">
     <h1>Album Page</h1>
 
+    <input type="text" ng-model="q" placeholder="Search" />
+
     <table id="example" class="display table" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -12,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate="x in Albums | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
+            <tr dir-paginate="x in Albums | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
                 <td>{{x.AlbumID}}</td>
                 <td>{{x.Name}}</td>
                 <td>{{x.ReleaseDate}}</td>
