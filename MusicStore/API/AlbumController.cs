@@ -15,7 +15,7 @@ namespace MusicStore.API
 
         [HttpGet]
         //[Route("getall")]
-        public List<Album> GetAllAlbum()
+        public List<Album> GetAllAlbum(string rating)
         {
             var data = album.GetAll();
             return data;

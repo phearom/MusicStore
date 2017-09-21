@@ -1,12 +1,29 @@
-<div class="jumbotron">
+<div class="author">
 	<h1>Author Page</h1>
 	
-    <ul>
-        <li ng-repeat="x in Authors">
-            {{x.AuthorID + ' - ' + x.Name }}
-        </li>
-    </ul>
 
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Action</th>
+        </tr>
+        <tr ng-repeat="x in Authors">
+            <td>{{x.AuthorID}}</td>
+            <td>{{x.Name}}</td>
+            <td>{{x.GenderID}}</td>
+            <td>{{x.Age}}</td>
+            <td style="width:150px;">
+                <a href="#!/author-edit?id={{x.AuthorID}}">Edit</a>
+                <a href="#!/author" ng-click="DeleteAuthor(x.AuthorID)">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <h3 style="text-align:center;">
+        <a href="#!/author-edit?id=-1">Add New</a>
+    </h3>
     <div ng-show="loading" class="loading">
         <img src="../../Images/loading.gif" style="width:120px" />
     </div>

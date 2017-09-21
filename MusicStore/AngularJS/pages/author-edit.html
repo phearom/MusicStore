@@ -1,0 +1,39 @@
+<div class="author">
+    <h1>Author Edit Page</h1>
+    <table class="table" style="width:50%;">
+        <tr ng-show="a">
+            <td>ID :</td>
+            <td><span ng-model="Author.AuthorID">{{Author.AuthorID}}</span></td>
+        </tr>
+        <tr>
+            <td> Name :</td>
+            <td><input type="text" ng-model="Author.Name" /></td>
+        </tr>
+        <tr>
+            <td> Age :</td>
+            <td><input type="text" ng-model="Author.Age" /></td>
+        </tr>
+        <tr>
+            <td> GenderID :</td>
+            <td>
+                <input type="text" ng-model="Author.GenderID" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input ng-show="a" type="button" value="Update" ng-click="UpdateAuthor(Author);" />
+                <input ng-show="!a" type="button" value="Add" ng-click="AddAuthor(Author);" />
+                <a href="index.html#!/author">Cancel</a>
+            </td>
+        </tr>
+    </table>
+    <div ng-show="loading" class="loading">
+        <img src="../../Images/loading.gif" style="width:120px" />
+    </div>
+
+    <script>
+        $(function () {
+            //$("#ReleaseDate").datepicker();
+        });
+    </script>
+</div>

@@ -296,17 +296,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AngularJS\css\style.css" />
     <Content Include="AngularJS\index.html" />
     <Content Include="AngularJS\js\angular-route.js" />
     <Content Include="AngularJS\css\bootstrap.min.css" />
     <Content Include="AngularJS\js\angular.1.2.25.min.js" />
     <Content Include="AngularJS\js\dirPagination.js" />
+    <Content Include="AngularJS\pages\author-edit.html" />
     <Content Include="AngularJS\pages\album.html" />
     <Content Include="AngularJS\pages\album-edit.html" />
     <Content Include="AngularJS\pages\author.html" />
     <Content Include="AngularJS\pages\dirPagination.tpl.html" />
     <Content Include="AngularJS\pages\home.html" />
-    <Content Include="AngularJS\js\script.js" />
+    <Content Include="AngularJS\js\app.js" />
     <Content Include="APICall\AngularJS.html" />
     <Content Include="APICall\Author.html" />
     <Content Include="Content\bootstrap.css" />

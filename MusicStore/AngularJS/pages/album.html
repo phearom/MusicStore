@@ -1,15 +1,31 @@
-<div class="jumbotron">
+<div class="album">
     <h1>Album Page</h1>
 
     <input type="text" ng-model="q" placeholder="Search" />
-    Rating : <select ng-model="ax" ng-change="AlbumFilter(ax)">
-        <option ng-repeat="author in Authors" value="{{author.AuthorID}}" ng-selected="author.AuthorID==Album.AlbumID">{{author.Name}}</option>
+    Rating :
+    <select ng-model="rating">
+        <option value="">==All==</option>
+        <!--<option ng-repeat="author in Authors" value="{{author.AuthorID}}" ng-selected="author.AuthorID==Album.AlbumID">{{author.Name}}</option>-->
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
     </select>
-
+    Enable :
+    <select ng-model="enable">
+        <option value="">==All==</option>
+        <option value="0">Disable</option>
+        <option value="1">Enable</option>
+    </select>
+    Release Date
+    <input type="text" ng-model="releasedate" id="releasedate" name="releasedate" />
+    <input type="button" ng-click="AlbumFilter(rating,enable,releasedate)" value="Search" />
     <table id="example" class="display table" cellspacing="0" ng-show="!loading">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>No</th>
                 <th>Name</th>
                 <th>Release Date</th>
                 <th>Rating</th>
@@ -18,13 +34,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr dir-paginate="x in Albums | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="drinksPagination">
-                <td>{{x.AlbumID}}</td>
+            <tr dir-paginate="x in Albums | filter:q | itemsPerPage: pageSize" current-page="currentPage" pagination-id="albumsPagination">
+                <td>{{$index+1}}</td>
                 <td>{{x.Name}}</td>
                 <td>{{x.ReleaseDate}}</td>
                 <td>{{x.Rating}}</td>
                 <td>{{x.IsEnable}}</td>
-                <td>
+                <td width="150px">
                     <a href="#!/album-edit?id={{x.AlbumID}}">Edit</a>
                     <a href="#!/album" ng-click="DeleteAlbum(x.AlbumID)">Delete</a>
                 </td>
@@ -33,19 +49,25 @@
     </table>
 
     <div class="text-center" ng-show="!loading">
-        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/dirPagination.tpl.html" pagination-id="drinksPagination"></dir-pagination-controls>
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="pages/dirPagination.tpl.html" pagination-id="albumsPagination"></dir-pagination-controls>
     </div>
 
     <div ng-show="loading" class="loading">
         <img src="../../Images/loading.gif" style="width:120px" />
     </div>
-    <h3>
+    <h3 style="text-align:center;">
         <a href="#!/album-edit?id=-1">Add New</a>
     </h3>
 </div>
 
 <style>
     th {
-        text-align: center;
+        text-align: left;
     }
 </style>
+
+<script>
+        $(function () {
+            $("#releasedate").datepicker();
+        });
+</script>

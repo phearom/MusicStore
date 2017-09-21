@@ -14,14 +14,38 @@ namespace MusicStore.Controllers
     public class AlbumsController : Controller
     {
         private MusicStoreDataContext db = new MusicStoreDataContext();
+        private Repository<Album> album = new Repository<Album>();
 
-        [HttpPost]
-        public string XXX(string id, string name, string age)
+        [HttpGet]
+        public JsonResult GetAll(int rating, int enable,string releasedate)
         {
-            var x = $"ID : {id}, name : {name}, age : {age}";
-            return x;
+            List<Album> data;
+            if (rating == -1 && enable == -1)
+            {
+                data = album.GetAll();
+            }
+            else if (rating == -1)
+            {
+                data = album.GetAll().Where(a => a.IsEnable.Equals(enable)).ToList();
+            }
+            else if (enable == -1)
+            {
+                data = album.GetAll().Where(a => a.Rating.Equals(rating)).ToList();
+            }
+            else
+            {
+                data = album.GetAll().Where(a => a.Rating.Equals(rating) && a.IsEnable.Equals(enable)).ToList();
+            }
+            var dx = Json(data, JsonRequestBehavior.AllowGet);
+            return dx;
         }
-
+        [HttpGet]
+        public JsonResult GetRating()
+        {
+            var data = album.GetAll().OrderBy(x => x.Rating).Select(x => x.Rating).Distinct();
+            var dx = Json(data, JsonRequestBehavior.AllowGet);
+            return dx;
+        }
         // GET: Albums
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
